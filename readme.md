@@ -16,3 +16,4 @@ Intermediate operation--steam, map, filter,sorted, distinct
 Terminal operation -- forEach,reduce
 collect--specific return type
 
+
