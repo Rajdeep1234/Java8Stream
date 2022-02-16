@@ -11,3 +11,5 @@ Topics
   sort in reverse order by length
    courses.stream().sorted((x,y)->y.length()-x.length()).forEach(System.out::println)
 9. collect
+=================
+10. 
