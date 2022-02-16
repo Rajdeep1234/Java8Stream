@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class MainFP02 {
     public static void main(String args[]){
@@ -9,8 +10,21 @@ public class MainFP02 {
         list.add(89);
         list.add(78);
 
-        addNumberStructured(list);
-      System.out.println( "functional output "+ addNumberFUnctional(list));
+        List<Integer> numbers=List.of(1,2,3,4,5,6,7,8,9);
+//       List<Integer> doubledNumber= numbers.stream().map(x->x*x).collect(Collectors.toList());
+//        System.out.println(doubledNumber);
+
+        List<Integer> evenNumbers=numbers.stream().filter(x->x%2==0).collect(Collectors.toList());
+      //  System.out.println(evenNumbers);
+
+        List<String> courses=List.of("Spring", "Spring Boot", "API" , "Microservices","AWS", "PCF","Azure", "Docker", "Kubernetes");
+        List<Integer> courseLength=courses.stream().map(x->x.length()).collect(Collectors.toList());
+        System.out.println(courseLength);
+
+
+
+      //  addNumberStructured(list);
+      //System.out.println( "functional output "+ addNumberFUnctional(list));
     }
 
     private static int addNumberFUnctional(List<Integer> list) {
