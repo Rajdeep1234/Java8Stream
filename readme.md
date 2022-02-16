@@ -11,9 +11,10 @@ Topics
   sort in reverse order by length
    courses.stream().sorted((x,y)->y.length()-x.length()).forEach(System.out::println)
 9. collect
-=================
-Intermediate operation--steam, map, filter,sorted, distinct 
-Terminal operation -- forEach,reduce
-collect--specific return type
+
+
+10. Intermediate operation--steam, map, filter,sorted, distinct 
+11. Terminal operation -- forEach,reduce
+12. collect--specific return type
 
 
