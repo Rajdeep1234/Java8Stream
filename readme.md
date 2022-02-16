@@ -12,4 +12,7 @@ Topics
    courses.stream().sorted((x,y)->y.length()-x.length()).forEach(System.out::println)
 9. collect
 =================
-10. 
+Intermediate operation--steam, map, filter,sorted, distinct 
+Terminal operation -- forEach,reduce
+collect--specific return type
+
