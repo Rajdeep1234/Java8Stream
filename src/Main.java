@@ -10,7 +10,7 @@ public class Main {
         list.add(89);
         list.add(78);
         printAllNumbersInList(list);
-        printAllNumbersInListStream(list);
+        printAllNumbersInListStream(list); //using stream and method reference
 
     }
 
