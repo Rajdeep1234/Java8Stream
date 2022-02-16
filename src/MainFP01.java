@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main {
+public class MainFP01 {
     public static void main(String args[]){
         System.out.println("HI");
         List<Integer> list=new ArrayList<>();
@@ -12,6 +12,8 @@ public class Main {
         printAllNumbersInList(list);
         printAllNumbersInListStream(list); //using stream and method reference
         printOddNumbersInListStream(list);
+        printSquareOfNumbersInList(list);
+        printCubeOfNumbersInList(list);
 
         List<String>  strlist=new ArrayList<String>();
         strlist.add("aws");
@@ -22,6 +24,19 @@ public class Main {
         printAllStringIndividually(strlist);
         printStringStsrtsWithSprig(strlist);
         printStringLengthMoreThanFour(strlist);
+        printLengthOfStringInList(strlist);
+    }
+
+    private static void printLengthOfStringInList(List<String> strlist) {
+        strlist.stream().map(str->str+" "+str.length()).forEach(System.out::println);
+    }
+
+    private static void printCubeOfNumbersInList(List<Integer> list) {
+        list.stream().map(num->num*num*num).forEach(System.out::println);
+    }
+
+    private static void printSquareOfNumbersInList(List<Integer> list) {
+        list.stream().filter(num->num%2==0).map(num->num*num).forEach(System.out::println);
     }
 
     private static void printStringLengthMoreThanFour(List<String> strlist) {
