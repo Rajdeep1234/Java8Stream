@@ -1,16 +1,13 @@
-public class NumberSequencePrint {
+public class OddEven {
 
     public static void main(String args[]) {
-        PrintNumber runnable1 = new PrintNumber(0, 3);
-        PrintNumber runnable2 = new PrintNumber(1, 3);
-        PrintNumber runnable3 = new PrintNumber(2, 3);
+        PrintOddEvenNumber runnable1 = new PrintOddEvenNumber(true);
+        PrintOddEvenNumber runnable2 = new PrintOddEvenNumber(false);
 
         Thread t1 = new Thread(runnable1, "T1");
         Thread t2 = new Thread(runnable2, "T2");
-        Thread t3 = new Thread(runnable3, "T3");
 
         t2.start();
-        t3.start();
         t1.start();
 
 
@@ -21,17 +18,15 @@ public class NumberSequencePrint {
 
 }
 
-class PrintNumber implements Runnable{
-    private   int reminder;
-    private   int totalthread;
-     static int count=0;
+class PrintOddEvenNumber implements Runnable{
+    private   boolean isOdd;
+    static int count=0;
 
 
-     static Object monitor=new Object();
+    static Object monitor=new Object();
 
-    public PrintNumber(int threadNumber, int totalthread){
-        this.reminder=threadNumber;
-        this.totalthread=totalthread;
+    public PrintOddEvenNumber(boolean  isOdd){
+        this.isOdd=isOdd;
 
     }
 
@@ -40,16 +35,16 @@ class PrintNumber implements Runnable{
     public void run() {
         while (count < 10) {
             synchronized (monitor) {   //if we don't define this we will get IllegalMonitorStateException
-                                        //The IllegalMonitorStateException is related to multithreading programming in Java. If we have a monitor we want to synchronize on,
+                //The IllegalMonitorStateException is related to multithreading programming in Java. If we have a monitor we want to synchronize on,
                 // this exception is     //thrown to indicate that a thread tried to wait or to notify other threads waiting on that monitor,
-                if (count % totalthread != reminder) {
+                if ((count%2==0 && isOdd )  ||(count%2==1 && !isOdd)) {
                     try {
                         monitor.wait();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
-              else {
+                else {
                     System.out.println(Thread.currentThread().getName() + " : " + count);
                     count++;
                     monitor.notifyAll();
