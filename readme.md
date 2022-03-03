@@ -1,6 +1,7 @@
 https://github.com/in28minutes/functional-programming-with-java/blob/master/code.md
 Topics
 1. method reference
+  System.out::println
 2. stream
 3. filter
 4. map
@@ -11,9 +12,13 @@ Topics
 7. distinct
 8. sorted
   sort in reverse order by length
+  sorted(Comparator.naturalOrder())
+  sorted(Comparator.reverseOrder())
+  sorted(Comparator.comparing(str->str.length()))
+  
    courses.stream().sorted((x,y)->y.length()-x.length()).forEach(System.out::println)
 9. collect
-
+  .collect(Collectors.toList());
 
 10. Intermediate operation--steam, map, filter,sorted, distinct 
 11. Terminal operation -- forEach,reduce
