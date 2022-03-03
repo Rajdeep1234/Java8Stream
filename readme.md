@@ -6,6 +6,8 @@ Topics
 4. map
 5. foreach
 6. reduce
+  reduce(0,(x,y)->x+y)
+   0 is initial val, 2nd param is bi function
 7. distinct
 8. sorted
   sort in reverse order by length
